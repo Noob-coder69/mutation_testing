@@ -1,6 +1,6 @@
 module.exports = function gradeToLetter(score) {
-
-  if (typeof score !== 'number') {
+  // Check for non-number or NaN (NaN is typeof number so needs explicit check)
+  if (typeof score !== 'number' || isNaN(score) || score < 0 || score > 100) {
     return 'Invalid input. Please provide a number.';
   }
 
@@ -15,4 +15,4 @@ module.exports = function gradeToLetter(score) {
   } else {
     return "F";
   }
-}
+};
